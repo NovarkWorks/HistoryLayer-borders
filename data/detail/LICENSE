@@ -1,0 +1,26 @@
+The files in this directory are licensed under the GNU General Public License,
+version 3. The full text travels with them: it is served by this site at
+/LICENSES/GPL-3.0.txt, and sits at ../../LICENSES/GPL-3.0.txt relative to this
+notice.
+
+They are a MODIFIED version of the world border snapshots published by
+aourednik/historical-basemaps (https://github.com/aourednik/historical-basemaps),
+copyright its authors.
+
+This is the same data as ../years/, kept at a higher resolution. The coarse tier
+is what the map draws when the whole world is on screen; these files replace it
+once the view is close enough that the simplified coastline would be visibly
+faceted. Both tiers come out of the same build, from the same sources, under the
+same licence.
+
+What was changed: each snapshot was simplified with mapshaper (Visvalingam,
+keep-shapes on so that small polities do not vanish) and converted to TopoJSON,
+which also removes the duplication where two neighbours share a border. One file
+per year. Nothing about the geometry was invented, corrected or re-attributed.
+
+The corresponding source is the upstream project linked above, together with
+../../../scripts/fetch-borders.mjs and ../../../scripts/build-borders.mjs.
+
+The application that draws these files is NOT under this licence — see LICENSE
+at the root. It contains none of this data; it fetches these files at runtime
+and would draw any other dataset in the same format.

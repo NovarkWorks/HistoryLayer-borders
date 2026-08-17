@@ -1,0 +1,13 @@
+manifest.json and polities.json in this directory are licensed under the
+GNU General Public License, version 3. The full text is served alongside them
+at /LICENSES/GPL-3.0.txt, and sits at ../LICENSES/GPL-3.0.txt relative to this
+notice.
+
+Both are computed from the border snapshots in ./years/, which are a MODIFIED
+version of aourednik/historical-basemaps and carry their own notice. manifest
+holds the year list and per-year counts. polities.json joins Wikidata metadata
+(CC0) onto the polity names found in the snapshots — the metadata is free of
+obligation, the set of names and the years each is drawn in is not.
+
+The corresponding source is ../scripts/, together with the upstream project at
+https://github.com/aourednik/historical-basemaps.

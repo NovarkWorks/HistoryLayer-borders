@@ -1,0 +1,16 @@
+{
+  "name": "history-layer-borders",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "Historical world border snapshots, simplified and served as TopoJSON. GPL-3.0.",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "fetch": "node scripts/fetch-borders.mjs",
+    "build": "node --experimental-strip-types scripts/build-borders.mjs"
+  },
+  "dependencies": {
+    "mapshaper": "^0.7.52",
+    "topojson-client": "^3.1.0"
+  }
+}
