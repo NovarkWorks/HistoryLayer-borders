@@ -695,13 +695,13 @@
     {
       "year": 2026,
       "era": "Modern",
-      "features": 177,
-      "named": 177,
-      "dependencies": 6,
+      "features": 242,
+      "named": 242,
+      "dependencies": 41,
       "avgPrecision": 3,
-      "kb": 68,
-      "gzipKb": 20,
-      "detailGzipKb": 25,
+      "kb": 271,
+      "gzipKb": 88,
+      "detailGzipKb": 136,
       "source": "naturalearth",
       "undrawable": []
     }

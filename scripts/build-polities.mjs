@@ -142,6 +142,26 @@ async function main() {
     if (rec.partof) entry.partOf = rec.partof;
     if (rec.abbrev) entry.abbrev = rec.abbrev;
 
+    /*
+     * The snapshots this name is actually drawn in.
+     *
+     * Already known — it is what the matching above is scored against — and
+     * thrown away when the file was written. Without it the app can only find
+     * a polity if the reader happens to be standing in a year it exists in:
+     * searching "Persia" on the 1994 map found nothing, because in 1994 that
+     * ground is Iran and the only names the search could see were the ones on
+     * screen. Written as the first and last, which is what a reader is told
+     * and what "take me there" needs.
+     */
+    const drawn = [...rec.years].sort((a, b) => a - b);
+    if (drawn.length) {
+      entry.seen = [drawn[0], drawn[drawn.length - 1]];
+      // The whole list only where it is not a run of every snapshot between
+      // the two, which is the case for names that come and go.
+      const between = ALL_YEARS.filter((y) => y >= drawn[0] && y <= drawn[drawn.length - 1]);
+      if (drawn.length !== between.length) entry.years = drawn;
+    }
+
     // A candidate that agrees with the timeline nowhere is worse than nothing.
     if (best && bestScore > 0.5) {
       if (best.kind) entry.kind = best.kind;

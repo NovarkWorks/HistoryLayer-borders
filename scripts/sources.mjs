@@ -53,7 +53,21 @@ export const ADM2_SOURCE =
 export const NE_LAYERS = {
   land: 'ne_110m_land.geojson',
   ocean: 'ne_110m_ocean.geojson',
-  countries: 'ne_110m_admin_0_countries.geojson',
+  /**
+   * Present-day countries, for the 2026 stop and the reference overlay.
+   *
+   * 50m rather than 110m. 110m is built for a whole world on one screen and
+   * falls apart the moment somebody zooms: Iran came out of it with 51
+   * vertices where the 2010 historical file gives 153, so the modern map — the
+   * one people zoom into most — was the coarsest in the atlas, and stepping
+   * from 2018 to 2019 visibly degraded the borders. The detail tier could not
+   * help, because 38% of a 110m outline is still a 110m outline.
+   *
+   * Unlike admin1, this file at 50m IS the same set at finer resolution rather
+   * than a subset, so nothing is lost by moving up. 3 MB against 800 KB, paid
+   * once at build time.
+   */
+  countries: 'ne_50m_admin_0_countries.geojson',
   /**
    * States and provinces, for when the map is zoomed past a country.
    *
